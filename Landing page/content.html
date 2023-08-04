@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Animation</title>
+  <style>
+    /* Set up the initial state of the text */
+    .text {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="text">
+    <p id="line1">This is the first line of text.</p>
+    <p id="line2">This is the second line of text.</p>
+    <p id="line3">This is the third line of text.</p>
+  </div>
+
+  <script>
+    const lines = document.querySelectorAll('.text p');
+
+    function revealText(index) {
+      if (index >= lines.length) {
+        return;
+      }
+
+      setTimeout(() => {
+        lines[index].style.opacity = 1;
+        revealText(index + 1);
+      }, 1000); // Delay of 1000ms (1 second)
+    }
+
+    revealText(0);
+  </script>
+</body>
+</html>
